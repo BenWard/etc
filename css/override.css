@@ -1,0 +1,10 @@
+/** Flickr from Yahoo */
+td.FlickrLogo a { display: block; width: 102px; overflow-x: hidden; }
+
+/** Facebook */
+/* Suggestions */
+#rightCol #pagelet_pymkbox,
+#rightCol #pagelet_adbox,
+#rightCol #pagelet_connectbox {
+    display: none !important;
+}
