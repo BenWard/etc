@@ -23,4 +23,4 @@ fi
 
 ## Git
 source /usr/local/etc/bash_completion.d/git-completion.bash
-alias github="open \`git remote -v | ruby -e 'remote = STDIN.read.split(\"\n\").select { |line| line =~ /git@github/ }.first.split(\"\t\")[1].split(\":\")[1].each { |slug| puts \"https://github.com/#{slug.split(\" \").first}\" }'\`"
+alias github="git remote -v | ruby -e 'slug = STDIN.read.split(\"\n\").collect { |line| /git@github\.com:([\w\/\.]+)/.match(line) ? \$1 : false }.select { |line| line }.first; \`open https://github.com/#{slug}\`'"
