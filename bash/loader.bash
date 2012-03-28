@@ -1,6 +1,6 @@
-source paths.bash
-source machine.bash
-source profile.bash
-source functions.bash
-source sourcecontrol.bash
-source macosx.bash
+source ~/etc/bash/paths.bash
+source ~/etc/bash/machine.bash
+source ~/etc/bash/profile.bash
+source ~/etc/bash/functions.bash
+source ~/etc/bash/sourcecontrol.bash
+source ~/etc/bash/macosx.bash
