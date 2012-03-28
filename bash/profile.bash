@@ -1,4 +1,5 @@
 # Generic Shell Defaults
+umask 0007
 
 ## Terminal
 export TERM=xterm-256color
