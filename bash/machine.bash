@@ -7,4 +7,4 @@
 ## 0;35 -- Purple: Remote, my machine
 
 export MACHINENAME="@benward"
-export MACHINECOLOR="1;33" # default
+export MACHINECOLOR="0;35" # default
