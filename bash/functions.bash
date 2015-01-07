@@ -21,6 +21,20 @@ function cdls {
   ls
 }
 
+# Handy Python web-servers: Usage `serve [port]`
+function http {
+  python -m SimpleHTTPServer $1
+}
+
+function sudohttp {
+  sudo python -m SimpleHTTPServer $1
+}
+
+# Free up an HTTP port
+function killport {
+  kill `lsof -t -i tcp:$1`
+}
+
 # URL encode a string
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 
