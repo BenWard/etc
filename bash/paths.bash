@@ -1,8 +1,5 @@
 # Paths
 
-# MacPorts
-export PATH=/opt/local/bin:$PATH
-
 # Home
 export PATH=$HOME/bin:$PATH
 
