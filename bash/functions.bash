@@ -38,5 +38,13 @@ function killport {
 # URL encode a string
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 
-alias fuj='~/Code/fuj/lib/fuj.rb'
-alias jira=fuj
+# Open Sublime Project
+function subl {
+  if [ -n "$1" ]; then
+    command subl $1
+  elif [ -f *.sublime-project ]; then
+    command subl *.sublime-project
+  else
+    command subl .
+  fi
+}
