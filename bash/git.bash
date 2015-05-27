@@ -1,0 +1,1 @@
+alias git="klist -s || kinit; git"
