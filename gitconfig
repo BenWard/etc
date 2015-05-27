@@ -3,5 +3,11 @@
 	email = ben@benward.me
 [core]
 	editor = subl
+	autocrlf = input
 [alias]
 	st = status
+  # Checkout-Whitespace command derived from: http://stackoverflow.com/a/6311302
+  # Backs up the current work in a stash in case diff patch fails somehow.
+  cows = !git stash && git stash apply && git diff -w > cows.patch && git checkout . && git apply cows.patch && rm cows.patch
+[push]
+	default = simple
