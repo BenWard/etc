@@ -3,5 +3,33 @@
 	email = ben@benward.me
 [core]
 	editor = subl
+[color]
+   ui = auto
 [alias]
-	st = status
+	co = checkout
+  st = status
+  ci = commit
+  new = checkout -b
+[github]
+  user = benward
+  token = bbb39a8b823a40d40ce15e3ebd970150
+[merge]
+  conflictstyle = diff3
+  tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+  tool = Kaleidoscope
+  renames = true
+  copies = true
+[difftool]
+  prompt = false
+[mergetool "Kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
+[mergetool]
+  prompt = false
+[push]
+  default = simple
+[http]
+  postBuffer = 524288000
