@@ -1,0 +1,7 @@
+[user]
+	name = Ben Ward
+	email = ben@benward.me
+[core]
+	editor = subl
+[alias]
+	st = status

@@ -1,0 +1,1 @@
+source $HOME/etc/bash/loader.bash
