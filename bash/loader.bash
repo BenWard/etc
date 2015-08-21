@@ -9,6 +9,6 @@ source ~/etc/bash/node.bash
 source ~/etc/bash/pants.bash
 source ~/etc/bash/ruby.bash
 source ~/etc/bash/sourcecontrol.bash
-source ~/etc/bash/macosx.bash
 source ~/etc/bash/scala.bash
-source ~/.extras.bash
+
+sourceif ~/.extras.bash

@@ -10,7 +10,11 @@ function hist {
     history | grep $1
 }
 
-## Re-source this file
+## Sourcing this file
+function sourceif {
+  [[ -e $1 ]] && source $1
+}
+
 function resource {
   source ~/.bash_profile
 }
