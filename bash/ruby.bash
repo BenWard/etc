@@ -9,6 +9,6 @@ export RUBY_HEAP_FREE_MIN=4096
 
 
 ## rvm
-[[ -s "/opt/twitter/rvm/scripts/rvm" ]] && source "/opt/twitter/rvm/scripts/rvm"
+sourceif "/opt/twitter/rvm/scripts/rvm"
 
 alias brake='bundle exec rake'
