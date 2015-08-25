@@ -2,12 +2,12 @@
 	name = Ben Ward
 	email = benward@twitter.com
 [core]
-	editor = subl
+	editor = subl -w
 [color]
    ui = auto
 [alias]
 	co = checkout
-  st = status
+  st = status -s
   ci = commit
   new = checkout -b
 [github]
