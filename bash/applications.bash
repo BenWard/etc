@@ -1,1 +1,1 @@
-export CHROME_BIN=/Users/Shared/Browsers/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
+export CHROME_BIN=/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
