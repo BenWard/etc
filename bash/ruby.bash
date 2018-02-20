@@ -1,5 +1,3 @@
-export SBT_TWITTER=1
-
 export RAILS_ENV='development'
 export RUBY_GC_HEAP_INIT_SLOTS=500000
 export RUBY_HEAP_SLOTS_INCREMENT=250000
