@@ -1,13 +1,36 @@
 [user]
 	name = Ben Ward
-	email = ben@benward.me
+	email = ben@benward.uk
 [core]
-	editor = subl
-	autocrlf = input
+	editor = subl -w
+  autocrlf = input
+[color]
+   ui = auto
 [alias]
-	st = status
-  # Checkout-Whitespace command derived from: http://stackoverflow.com/a/6311302
-  # Backs up the current work in a stash in case diff patch fails somehow.
-  cows = !git stash && git stash apply && git diff -w > cows.patch && git checkout . && git apply cows.patch && rm cows.patch
+	co = checkout
+  st = status -s
+  ci = commit
+  new = checkout -b
+[github]
+  user = benward
+  token = bbb39a8b823a40d40ce15e3ebd970150
+[merge]
+  conflictstyle = diff3
+  tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+  tool = Kaleidoscope
+  renames = true
+  copies = true
+[difftool]
+  prompt = false
+[mergetool "Kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
+[mergetool]
+  prompt = false
 [push]
-	default = simple
+  default = simple
+[http]
+  postBuffer = 524288000
