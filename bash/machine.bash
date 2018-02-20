@@ -5,6 +5,5 @@
 ## 0;31 -- Red: Live/Wary/Scary Remote Machine
 ## 0;32 -- Green: Remote, external project machine
 ## 0;35 -- Purple: Remote, my machine
-export BREWDIR=`brew --prefix`
 export MACHINENAME="Hub"
 export MACHINECOLOR="0;36" # default

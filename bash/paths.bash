@@ -7,7 +7,8 @@ export PATH=$HOME/bin:$PATH
 export PATH=/Library/Frameworks/Python.framework/Versions/Current/bin:${PATH}
 
 ## Homebrew
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export BREWDIR=`brew --prefix`
+export PATH=$BREWDIR/bin:$BREWDIR/sbin:$PATH
 
 ## Ruby
 export PATH=/.rvm/bin:$PATH

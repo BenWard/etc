@@ -1,16 +1,22 @@
-source ~/etc/bash/functions.bash
-source ~/etc/bash/paths.bash
+# Use https://github.com/mrzool/bash-sensible as a base:
+source ./sensible/sensible.bash
 
-source ~/etc/bash/machine.bash
-source ~/etc/bash/profile.bash
+source ./terminal.bash
+source machine.bash
 
-source ~/etc/bash/applications.bash
-source ~/etc/bash/fuck.bash
-source ~/etc/bash/git.bash
-source ~/etc/bash/pants.bash
+source ./paths.bash
+source ./completions.bash
+source ./functions.bash
 
-source ~/etc/bash/node.bash
-source ~/etc/bash/ruby.bash
-source ~/etc/bash/scala.bash
+source ./profile.bash
+
+source ./applications.bash
+source ./fuck.bash
+source ./git.bash
+source ./pants.bash
+
+source ./node.bash
+source ./ruby.bash
+source ./scala.bash
 
 sourceif ~/.extras.bash
