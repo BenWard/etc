@@ -11,7 +11,7 @@ export EDITOR="subl -w"
 # Improve history handling
 export HISTCONTROL=erasedups
 export HISTSIZE=10000
-export HISTIGNORE="&:ls.*:[bf]g:exit:[ \t]*:git add.*:history:resource"
+export HISTIGNORE="&:ls.*:[bf]g:exit:git add.*:history:resource"
 shopt -s histappend
 
 # Prompt
