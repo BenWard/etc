@@ -5,5 +5,4 @@
 ## 0;31 -- Red: Live/Wary/Scary Remote Machine
 ## 0;32 -- Green: Remote, external project machine
 ## 0;35 -- Purple: Remote, my machine
-export MACHINENAME="Hub"
-export MACHINECOLOR="0;36" # default
+export MACHINECOLOR="\[\033[0;36m\]" # default
