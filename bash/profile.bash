@@ -54,12 +54,12 @@ function bash_prompt {
 function __git_prompt_annotation {
   local BRANCH=$(__git_ps1 %s)
 
-  [[ BRANCH = '' ]] && return
-
-  if [[ $(git status --porc --ignore-submodules 2> /dev/null | tail -n1) ]]; then
-    echo "#$BRANCH ±"
-  else
-    echo "#$BRANCH ="
+  if [[ $BRANCH != '' ]]; then
+    if [[ $(git status --porc --ignore-submodules 2> /dev/null | tail -n1) ]]; then
+      echo "#$BRANCH ±"
+    else
+      echo "#$BRANCH ="
+    fi
   fi
 }
 
