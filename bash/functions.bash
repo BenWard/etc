@@ -26,7 +26,7 @@ function cdls {
 }
 
 ## Guess what I meant
-alias fuck='$(thefuck $(fc -ln -1))'
+alias f='$(thefuck $(fc -ln -1))'
 
 # Handy Python web-servers: Usage `serve [port]`
 function http {

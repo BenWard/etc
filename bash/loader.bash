@@ -13,6 +13,7 @@ source $DOTPATH/functions.bash
 source $DOTPATH/profile.bash
 
 source $DOTPATH/applications.bash
+source $DOTPATH/creek.bash
 source $DOTPATH/git.bash
 source $DOTPATH/pants.bash
 
