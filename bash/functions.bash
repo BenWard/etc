@@ -28,6 +28,9 @@ function cdls {
 ## Guess what I meant
 alias f='$(thefuck $(fc -ln -1))'
 
+# VirtualBox management
+alias vb=VBoxManage
+
 # Handy Python web-servers: Usage `serve [port]`
 function http {
   python -m SimpleHTTPServer $1
