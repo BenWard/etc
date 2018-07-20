@@ -64,7 +64,7 @@ function __git_prompt_annotation {
 }
 
 function __prompt_user_id {
-  if [[ $HOSTNAME = 'Firesuite.local' ]]; then
+  if [[ $HOSTNAME = 'Voyager.local' ]]; then
     echo '~\u'
   else
     echo '~\u@\h'
