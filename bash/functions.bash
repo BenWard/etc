@@ -25,6 +25,9 @@ function cdls {
   ls
 }
 
+## SSH Auth
+alias sshadd='ssh-add ~/.ssh/id_rsa'
+
 ## Guess what I meant
 alias f='$(thefuck $(fc -ln -1))'
 
