@@ -1,13 +1,12 @@
 [user]
-	name = Ben Ward
-	email = ben@benward.uk
+  name = Ben Ward
+  email = ben@benward.uk
 [core]
-	editor = subl -w
   autocrlf = input
 [color]
    ui = auto
 [alias]
-	co = checkout
+  co = checkout
   st = status -s
   ci = commit
   new = checkout -b

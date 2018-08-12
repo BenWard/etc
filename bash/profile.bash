@@ -2,7 +2,7 @@
 umask 0007
 
 ## Editor
-export EDITOR="subl -w"
+export EDITOR="code -w"
 
 # Prompt
 function bash_prompt {
