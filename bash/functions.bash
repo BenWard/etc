@@ -61,3 +61,11 @@ function subl {
     command subl .
   fi
 }
+# Open vscode directory
+function code {
+  if [ -n "$1" ]; then
+    command code $1
+  else
+    command subl .
+  fi
+}
