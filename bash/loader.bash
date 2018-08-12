@@ -1,5 +1,15 @@
 DOTPATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+## source a file if it exists
+function sourceif {
+  [[ -e $1 ]] && source $1
+}
+
+## reload profile
+function resource {
+  source ~/.bash_profile
+}
+
 # Use https://github.com/mrzool/bash-sensible as a base:
 source $DOTPATH/sensible/sensible.bash
 

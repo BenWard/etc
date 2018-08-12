@@ -10,15 +10,6 @@ function hist {
     history | grep $1
 }
 
-## Sourcing this file
-function sourceif {
-  [[ -e $1 ]] && source $1
-}
-
-function resource {
-  source ~/.bash_profile
-}
-
 ## CD and immediately ls
 function cdls {
   cd $1
