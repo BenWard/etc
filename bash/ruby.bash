@@ -10,3 +10,4 @@ export RUBY_HEAP_FREE_MIN=4096
 sourceif "$BREWDIR/rvm/scripts/rvm"
 
 alias brake='bundle exec rake'
+alias be='bundle exec'
