@@ -10,8 +10,11 @@ function resource {
   source ~/.bash_profile
 }
 
-# Use https://github.com/mrzool/bash-sensible as a base:
-source $DOTPATH/sensible/sensible.bash
+# If interactive
+if [ -n "$PS1" ]; then
+  # Use https://github.com/mrzool/bash-sensible as a base:
+  source $DOTPATH/sensible/sensible.bash
+fi
 
 source $DOTPATH/terminal.bash
 source $DOTPATH/machine.bash
