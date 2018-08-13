@@ -5,7 +5,7 @@ function sourceif {
   [[ -e $1 ]] && source $1
 }
 
-## reload profile
+## reload this profile
 function resource {
   source ~/.bash_profile
 }

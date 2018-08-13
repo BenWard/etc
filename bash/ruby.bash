@@ -5,9 +5,11 @@ export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=50000000
 export RUBY_HEAP_FREE_MIN=4096
 
-
 ## rvm
+# Mac
 sourceif "$BREWDIR/rvm/scripts/rvm"
+# Linux
+sourceif "/usr/local/rvm/scripts/rvm"
 
 alias brake='bundle exec rake'
 alias be='bundle exec'
