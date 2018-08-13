@@ -20,12 +20,12 @@ function cdls {
 alias sshadd='ssh-add ~/.ssh/id_rsa'
 
 ## Guess what I meant
-if [[ -f `which thefuck` ]]; then
+if [[ -x "$(command -v thefuck)" ]]; then
   alias f='$(thefuck $(fc -ln -1))'
 fi
 
 # VirtualBox management
-if [[ -f `which VBoxManage` ]]; then
+if [[ -x "$(command -v VBoxManage)" ]]; then
   alias vb=VBoxManage
 fi
 
@@ -47,7 +47,7 @@ function killport {
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 
 # Open Sublime Project
-if [[ -f `which subl` ]]; then
+if [[ -x "$(command -v subl)" ]]; then
   function subl {
     if [ -n "$1" ]; then
       command subl $1
@@ -60,7 +60,7 @@ if [[ -f `which subl` ]]; then
 fi
 
 # Open vscode directory
-if [[ -f `which code` ]]; then
+if [[ -x "$(command -v code)" ]]; then
   function code {
     if [ -n "$1" ]; then
       command code $1
