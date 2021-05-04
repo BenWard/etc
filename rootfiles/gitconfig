@@ -3,6 +3,7 @@
   email = ben@benward.uk
 [core]
   autocrlf = input
+  editor = vim
 [color]
    ui = auto
 [alias]
