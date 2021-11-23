@@ -39,9 +39,9 @@ fi
 if [[ -x "$(command -v nova)" ]]; then
 function nova {
   if [ -n "$1" ]; then
-    command nova -a $1
+    command nova open $1 --no-wait
   else
-    command nova -a .
+    command nova open . --no-wait
   fi
 }
 fi
