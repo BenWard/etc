@@ -14,8 +14,8 @@ brew "memcached", restart_service: true
 brew "libyaml"
 brew "mysql", restart_service: true
 brew "nginx", restart_service: true
-brew "node"
-brew "php@7.0"
+brew "node@16"
+brew "php@7.4"
 brew "phplint"
 brew "ruby"
 brew "telnet"

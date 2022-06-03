@@ -9,4 +9,7 @@ fi
 alias nr='npm run $1'
 
 # Enable Node@10
-export PATH="/usr/local/opt/node@10/bin:$PATH";
+# export PATH="/usr/local/opt/node@10/bin:$PATH";
+
+# Enable Node@16
+export PATH="/usr/local/opt/node@16/bin:$PATH";

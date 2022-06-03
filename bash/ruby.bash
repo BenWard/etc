@@ -5,6 +5,8 @@ export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=50000000
 export RUBY_HEAP_FREE_MIN=4096
 
+export PATH=/usr/local/opt/ruby@2.7/bin:$PATH
+
 ## rvm
 # Mac
 sourceif "$BREWDIR/rvm/scripts/rvm"
