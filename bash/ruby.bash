@@ -7,11 +7,11 @@ export RUBY_HEAP_FREE_MIN=4096
 
 export PATH=/usr/local/opt/ruby@2.7/bin:$PATH
 
-## rvm
-# Mac
-sourceif "$BREWDIR/rvm/scripts/rvm"
-# Linux
-sourceif "/usr/local/rvm/scripts/rvm"
-
 alias brake='bundle exec rake'
 alias be='bundle exec'
+
+# RVM
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+export PATH="$PATH:$HOME/.rvm/bin"
