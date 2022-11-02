@@ -17,6 +17,7 @@ brew "nginx", restart_service: true
 brew "node@16"
 brew "php@7.4"
 brew "phplint"
+brew "pixlet"
 brew "ruby"
 brew "telnet"
 brew "thefuck"
