@@ -9,11 +9,11 @@ if [[ -x "$(command -v brew)" ]]; then
   export BREWDIR=`brew --prefix`
 fi
 
-export PATH=$BREWDIR/bin:$BREWDIR/sbin:$PATH
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=$BREWDIR/bin:$BREWDIR/sbin:$PATH
 
 ## PHP
-export PATH="/usr/local/opt/php@7.4/bin:$PATH"
+export PATH=$BREWDIR/opt/php@7.4/bin:$PATH
 
 ## MySQL
 export PATH=$BREWDIR/mysql/bin:$PATH
