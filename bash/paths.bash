@@ -4,6 +4,7 @@
 export PATH=$HOME/bin:$PATH
 
 ## Homebrew
+export PATH=/opt/homebrew/bin:$PATH
 
 if [[ -x "$(command -v brew)" ]]; then
   export BREWDIR=`brew --prefix`
