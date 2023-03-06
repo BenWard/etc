@@ -21,3 +21,12 @@ export PATH=$BREWDIR/mysql/bin:$PATH
 
 ## OPAM
 test -r $HOME/.opam/opam-init/init.sh && . $HOME/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+
+
+## Python
+
+export PYENV_ROOT=$HOME/.pyenv
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+export PATH=$HOME/.local/bin:$PATH
