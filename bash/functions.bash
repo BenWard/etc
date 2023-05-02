@@ -29,11 +29,11 @@ alias sshadd='ssh-add ~/.ssh/id_rsa'
 
 # Handy Python web-servers: Usage `serve [port]`
 function http {
-  python -m SimpleHTTPServer $1
+  python3 -m http.server $1
 }
 
 function sudohttp {
-  sudo python -m SimpleHTTPServer $1
+  sudo python3 -m http.server $1
 }
 
 # Free up an HTTP port
