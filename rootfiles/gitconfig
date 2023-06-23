@@ -14,9 +14,6 @@
   prune-local = "!git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -D"
   ls = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-[github]
-  user = benward
-  token = bbb39a8b823a40d40ce15e3ebd970150
 [merge]
   conflictstyle = diff3
   tool = Kaleidoscope
