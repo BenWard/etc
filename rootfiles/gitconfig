@@ -31,10 +31,12 @@
   trustExitCode = true
 [mergetool]
   prompt = false
+[rebase]
+  autosquash = true
 [push]
   autoSetupRemote = true
   default = simple
 [http]
   postBuffer = 524288000
 [init]
-	defaultBranch = main
+  defaultBranch = main
