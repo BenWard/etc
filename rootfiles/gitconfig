@@ -3,7 +3,7 @@
   email = ben@benward.uk
 [core]
   autocrlf = input
-  editor = vim
+  editor = [[ -x "$(command -v code)" ]] && command code -nw $1 || vim $1
 [color]
   ui = auto
 [alias]
