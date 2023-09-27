@@ -11,13 +11,9 @@
   st = status -s
   ci = commit
   new = checkout -b
-  pull = "!git pull --prune"
   prune-local = "!git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -D"
   ls = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-[merge]
-  conflictstyle = diff3
-  tool = Kaleidoscope
 [difftool "Kaleidoscope"]
   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
@@ -26,17 +22,25 @@
   copies = true
 [difftool]
   prompt = false
+[fetch]
+  prune = true
+[http]
+  postBuffer = 524288000
+[init]
+  defaultBranch = main
+[merge]
+  conflictstyle = diff3
+  tool = Kaleidoscope
 [mergetool "Kaleidoscope"]
   cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
   trustExitCode = true
 [mergetool]
   prompt = false
-[rebase]
-  autosquash = true
+[pull]
+  rebase = true
+  prune = true
 [push]
   autoSetupRemote = true
   default = simple
-[http]
-  postBuffer = 524288000
-[init]
-  defaultBranch = main
+[rebase]
+  autosquash = true

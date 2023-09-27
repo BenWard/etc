@@ -43,3 +43,6 @@ function killport {
 
 # URL encode a string
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
+
+# Generate a UUID
+alias uuid="uuidgen |  tr '[:upper:]' '[:lower:]'"
