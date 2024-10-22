@@ -14,6 +14,7 @@ source $DOTPATH/machine.bash
 source $DOTPATH/paths.bash
 
 source $DOTPATH/node.bash
+source $DOTPATH/python.bash
 source $DOTPATH/ruby.bash
 source $DOTPATH/scala.bash
 
