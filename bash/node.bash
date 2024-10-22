@@ -12,4 +12,4 @@ alias nr='npm run $1'
 # export PATH=$BREWDIR/opt/node@10/bin:$PATH;
 
 # Enable Node@16
-export PATH=$BREWDIR/opt/node@16/bin:$PATH;
+# export PATH=$BREWDIR/opt/node@16/bin:$PATH;
