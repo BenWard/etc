@@ -31,6 +31,9 @@ if [ -n "$PS1" ]; then
   source $DOTPATH/applications.bash
   source $DOTPATH/docker.bash
   source $DOTPATH/git.bash
+
+  # Work
+  source $DOTPATH/caire.bash
 fi
 
 sourceif ~/.extras.bash
