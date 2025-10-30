@@ -1,6 +1,6 @@
 [user]
   name = Ben Ward
-  email = ben@benward.uk
+  email = ben@caire.health
 [core]
   autocrlf = input
   editor = [[ -x "$(command -v code)" ]] && command code -nw $1 || vim $1
