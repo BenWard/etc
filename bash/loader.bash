@@ -29,6 +29,7 @@ if [ -n "$PS1" ]; then
   source $DOTPATH/shell.bash
 
   source $DOTPATH/applications.bash
+  source $DOTPATH/docker.bash
   source $DOTPATH/git.bash
 fi
 
