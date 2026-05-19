@@ -4,11 +4,12 @@ require 'colored'
 
 desc "Create symlinks for each of the files.  Prompts before overwriting"
 task :symlink do
-  create_symlinks
+  create_symlinks("rootfiles", '.')
+  create_symlinks("claude", ".claude/")
 end
 
-def all_files
-  Dir.chdir("rootfiles") do
+def all_files(dir)
+  Dir.chdir(dir) do
     Dir.glob('*')
   end
 end
@@ -21,15 +22,14 @@ def already_symlinked?(source_path, target_path)
   File.exists?(target_path) && File.lstat(target_path).symlink? && File.readlink(target_path) == source_path
 end
 
-def create_symlinks
-  dir = File.dirname(__FILE__) + "/rootfiles/"
-
-  (all_files - ignore_files).each do |file|
+def create_symlinks(source_name, out_prefix = "")
+  dir = File.dirname(__FILE__) + "/#{source_name}/"
+  (all_files(source_name) - ignore_files).each do |file|
     homedir = File.expand_path ENV['HOME']
     source_path = File.join dir, file
 
     # Prepend dot for destination files
-    target_path = File.join homedir, ".#{file}"
+    target_path = File.join(homedir, "#{out_prefix}#{file}")
     unless already_symlinked?(source_path, target_path)
       if File.exists?(target_path)
         puts "File #{target_path} exists. Overwrite? (y/n)"
@@ -52,3 +52,4 @@ def create_symlinks
     end
   end
 end
+

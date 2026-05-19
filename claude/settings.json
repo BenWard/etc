@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "awsAuthRefresh": "aws sso login --profile staging-admin",
+  "env": {
+    "CLAUDE_CODE_USE_BEDROCK": "1",
+    "AWS_REGION": "us-east-2",
+    "AWS_PROFILE": "staging-admin"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(rg *)",
+      "Bash(jq *)",
+      "Bash(yq *)",
+      "Bash(awk *)",
+      "Bash(tree *)",
+      "Bash(file *)",
+      "Bash(sed -n *)",
+      "Bash(which *)",
+      "Bash(whereis *)",
+      "Bash(type *)",
+      "Bash(ps *)",
+      "Bash(env)",
+      "Bash(printenv *)",
+      "Bash(git log *)",
+      "Bash(git diff *)",
+      "Bash(git show *)",
+      "Bash(git blame *)",
+      "Bash(git remote -v)",
+      "Bash(git ls-files *)",
+      "Bash(git config --get *)",
+      "Bash(git rev-parse *)",
+      "Bash(gh repo view *)",
+      "Bash(gh repo list *)",
+      "Bash(gh pr view *)",
+      "Bash(gh pr list *)",
+      "Bash(gh pr diff *)",
+      "Bash(gh pr checks *)",
+      "Bash(gh pr status)",
+      "Bash(gh issue view *)",
+      "Bash(gh issue list *)",
+      "Bash(gh issue status)",
+      "Bash(gh release view *)",
+      "Bash(gh release list *)",
+      "Bash(gh run view *)",
+      "Bash(gh run list *)",
+      "Bash(gh workflow view *)",
+      "Bash(gh workflow list *)",
+      "Bash(gh search *)",
+      "Bash(gh auth status)",
+      "Bash(npm view *)",
+      "Bash(npm ls *)",
+      "Bash(npm outdated *)",
+      "Bash(pnpm list *)",
+      "Bash(pnpm why *)",
+      "Bash(node --version)",
+      "Bash(python --version)",
+      "Bash(pip show *)",
+      "Bash(pip list *)"
+    ],
+    "deny": [
+      "Bash(sed -I*)",
+      "Bash(sed -i*)",
+      "Bash(sed * -i*)",
+      "Bash(sed * -I*)",
+      "Bash(jq -i*)",
+      "Bash(yq -i*)",
+      "Bash(yq --inplace*)",
+      "Bash(gh api * -X POST*)",
+      "Bash(gh api * -X PUT*)",
+      "Bash(gh api * -X PATCH*)",
+      "Bash(gh api * -X DELETE*)",
+      "Bash(gh api * --method POST*)",
+      "Bash(gh api * --method PUT*)",
+      "Bash(gh api * --method PATCH*)",
+      "Bash(gh api * --method DELETE*)",
+      "Bash(gh api --method *)",
+      "Bash(mv *)",
+      "Bash(cp *)",
+      "Bash(chmod *)",
+      "Bash(chown *)",
+      "Bash(curl * -X POST*)",
+      "Bash(curl * -X PUT*)",
+      "Bash(curl * -X DELETE*)",
+      "Bash(curl * --data*)",
+      "Bash(curl * -d *)",
+      "Bash(curl * -o *)",
+      "Bash(curl * --output*)"
+    ],
+    "defaultMode": "default"
+  },
+  "model": "us.anthropic.claude-opus-4-6-v1",
+  "enabledPlugins": {
+    "codex@openai-codex": true,
+    "swiftui-pro@swiftui-agent-skill": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    },
+    "openai-codex": {
+      "source": {
+        "source": "github",
+        "repo": "openai/codex-plugin-cc"
+      }
+    },
+    "swiftui-agent-skill": {
+      "source": {
+        "source": "github",
+        "repo": "twostraws/SwiftUI-Agent-Skill"
+      }
+    }
+  },
+  "effortLevel": "high",
+  "theme": "dark-ansi"
+}
