@@ -8,6 +8,8 @@
   },
   "permissions": {
     "allow": [
+      "Read(~/.AGENTS.md)",
+      "Read(~/etc/rootfiles/AGENTS.md)",
       "Bash(rg *)",
       "Bash(jq *)",
       "Bash(yq *)",
@@ -88,7 +90,7 @@
     ],
     "defaultMode": "default"
   },
-  "model": "us.anthropic.claude-opus-4-6-v1",
+  "model": "us.anthropic.claude-opus-4-7",
   "enabledPlugins": {
     "codex@openai-codex": true,
     "swiftui-pro@swiftui-agent-skill": true

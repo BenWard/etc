@@ -6,6 +6,7 @@ desc "Create symlinks for each of the files.  Prompts before overwriting"
 task :symlink do
   create_symlinks("rootfiles", '.')
   create_symlinks("claude", ".claude/")
+  create_symlinks("codex", ".codex/")
 end
 
 def all_files(dir)
