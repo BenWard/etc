@@ -42,6 +42,10 @@ if [ -n "$PS1" ]; then
     PS1='[\A] \u@\h \w\$ '
   fi
 
+  if [[ -n "${BREWDIR:-}" ]]; then
+    sourceif "$BREWDIR/etc/profile.d/bash-preexec.sh"
+  fi
+
   if command -v atuin >/dev/null 2>&1; then
     eval "$(atuin init bash)"
   fi

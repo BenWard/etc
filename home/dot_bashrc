@@ -1,1 +1,1 @@
-source "$HOME/etc/bash/loader.bash"
+source "$HOME/.dotfiles_lib/bash/loader.bash"

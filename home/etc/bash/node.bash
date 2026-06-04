@@ -1,3 +1,0 @@
-function nr {
-  npm run "$@"
-}
