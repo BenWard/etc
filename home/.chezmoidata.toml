@@ -1,2 +1,2 @@
 # Shared prompt data. Local machine config can override this later.
-userHostColor = "purple"
+userHostColor = "cyan"

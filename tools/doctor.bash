@@ -107,6 +107,14 @@ check_home_file() {
   fi
 }
 
+check_atuin_source_config() {
+  if ATUIN_CONFIG_DIR="$SOURCE_DIR/dot_config/atuin" atuin config print >/dev/null; then
+    ok "Atuin source config is readable"
+  else
+    fail "Atuin source config is readable"
+  fi
+}
+
 for binary in brew just chezmoi mise starship fzf zoxide atuin bash; do
   require_binary "$binary"
 done
@@ -122,30 +130,39 @@ require_source_dir "dot_codex"
 require_source_dir "dot_config/atuin"
 require_source_dir "dot_config/mise"
 require_source_file "dot_config/starship.toml.tmpl"
-require_source_dir "etc/bash"
-require_source_dir "etc/git-aliases"
+require_source_dir "dot_dotfiles_lib/bash"
+require_source_dir "dot_dotfiles_lib/git-aliases"
+require_source_file "dot_dotfiles_lib/git-aliases/executable_prune-local.sh"
+require_source_file "dot_dotfiles_lib/git-aliases/executable_wt.sh"
 
-require_pattern 'source "$HOME/etc/bash/loader.bash"' "dot_bashrc" "dot_bashrc loads the managed bash loader"
-require_pattern 'source "$HOME/etc/bash/loader.bash"' "dot_bash_profile" "dot_bash_profile loads the managed bash loader"
-require_pattern 'mise activate bash' "etc/bash/paths.bash" "mise activation is configured"
-require_pattern 'fzf --bash' "etc/bash/loader.bash" "fzf bash integration is configured"
-require_pattern 'zoxide init bash' "etc/bash/loader.bash" "zoxide bash integration is configured"
-require_pattern 'atuin init bash' "etc/bash/loader.bash" "Atuin bash integration is configured"
-require_pattern 'starship init bash' "etc/bash/loader.bash" "Starship prompt integration is configured"
-require_pattern_order 'starship init bash' 'atuin init bash' "etc/bash/loader.bash" "Starship initializes before Atuin"
-require_pattern 'bash_completion.d/npm' "etc/bash/completions.bash" "npm completion is explicitly configured"
+require_pattern 'source "$HOME/.dotfiles_lib/bash/loader.bash"' "dot_bashrc" "dot_bashrc loads the managed bash loader"
+require_pattern 'source "$HOME/.dotfiles_lib/bash/loader.bash"' "dot_bash_profile" "dot_bash_profile loads the managed bash loader"
+require_pattern '$HOME/.dotfiles_lib/git-aliases/prune-local.sh' "dot_gitconfig" "git prune-local uses managed helper"
+require_pattern '$HOME/.dotfiles_lib/git-aliases/wt.sh' "dot_gitconfig" "git wt uses managed helper"
+require_pattern 'mise activate bash' "dot_dotfiles_lib/bash/paths.bash" "mise activation is configured"
+require_pattern 'fzf --bash' "dot_dotfiles_lib/bash/loader.bash" "fzf bash integration is configured"
+require_pattern 'zoxide init bash' "dot_dotfiles_lib/bash/loader.bash" "zoxide bash integration is configured"
+require_pattern 'bash-preexec.sh' "dot_dotfiles_lib/bash/loader.bash" "bash-preexec integration is configured"
+require_pattern 'atuin init bash' "dot_dotfiles_lib/bash/loader.bash" "Atuin bash integration is configured"
+require_pattern 'starship init bash' "dot_dotfiles_lib/bash/loader.bash" "Starship prompt integration is configured"
+require_pattern_order 'starship init bash' 'atuin init bash' "dot_dotfiles_lib/bash/loader.bash" "Starship initializes before Atuin"
+require_pattern_order 'bash-preexec.sh' 'atuin init bash' "dot_dotfiles_lib/bash/loader.bash" "bash-preexec loads before Atuin"
+require_pattern 'bash_completion.d/npm' "dot_dotfiles_lib/bash/completions.bash" "npm completion is explicitly configured"
 require_pattern 'auto_sync = false' "dot_config/atuin/config.toml" "Atuin auto sync is disabled"
 require_pattern 'userHostColor = "purple"' ".chezmoidata.toml" "prompt color data is configured"
+check_atuin_source_config
 
-check_home_file "$HOME/.bashrc" 'source "$HOME/etc/bash/loader.bash"'
-check_home_file "$HOME/.bash_profile" 'source "$HOME/etc/bash/loader.bash"'
+check_home_file "$HOME/.bashrc" 'source "$HOME/.dotfiles_lib/bash/loader.bash"'
+check_home_file "$HOME/.bash_profile" 'source "$HOME/.dotfiles_lib/bash/loader.bash"'
 
 if command -v brew >/dev/null 2>&1; then
-  if brew list --formula bash-completion@2 >/dev/null 2>&1; then
-    ok "bash-completion@2 is installed"
-  else
-    fail "bash-completion@2 is not installed"
-  fi
+  for formula in bash-completion@2 bash-preexec; do
+    if brew list --formula "$formula" >/dev/null 2>&1; then
+      ok "$formula is installed"
+    else
+      fail "$formula is not installed"
+    fi
+  done
 
   if brew bundle check --file "$ROOT_DIR/Brewfile" --verbose; then
     ok "Brewfile is satisfied"

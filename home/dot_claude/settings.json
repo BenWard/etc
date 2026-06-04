@@ -9,7 +9,6 @@
   "permissions": {
     "allow": [
       "Read(~/.AGENTS.md)",
-      "Read(~/etc/rootfiles/AGENTS.md)",
       "Bash(rg *)",
       "Bash(jq *)",
       "Bash(yq *)",
