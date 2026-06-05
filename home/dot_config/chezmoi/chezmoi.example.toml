@@ -1,0 +1,4 @@
+# Copy to ~/.config/chezmoi/chezmoi.toml on machines that need local overrides.
+
+[data]
+userHostColor = "green"
