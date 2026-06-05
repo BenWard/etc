@@ -120,6 +120,8 @@ for binary in brew just chezmoi mise starship fzf zoxide atuin bash; do
 done
 
 require_root_file ".chezmoiroot"
+require_root_file ".gitignore"
+require_source_file ".chezmoiignore"
 require_source_file ".chezmoidata.toml"
 require_source_file "dot_bashrc"
 require_source_file "dot_bash_profile"
@@ -128,7 +130,9 @@ require_source_file "dot_AGENTS.md"
 require_source_dir "dot_claude"
 require_source_dir "dot_codex"
 require_source_dir "dot_config/atuin"
+require_source_dir "dot_config/chezmoi"
 require_source_dir "dot_config/mise"
+require_source_file "dot_config/chezmoi/chezmoi.example.toml"
 require_source_file "dot_config/starship.toml.tmpl"
 require_source_dir "dot_dotfiles_lib/bash"
 require_source_dir "dot_dotfiles_lib/git-aliases"
@@ -149,7 +153,10 @@ require_pattern_order 'starship init bash' 'atuin init bash' "dot_dotfiles_lib/b
 require_pattern_order 'bash-preexec.sh' 'atuin init bash' "dot_dotfiles_lib/bash/loader.bash" "bash-preexec loads before Atuin"
 require_pattern 'bash_completion.d/npm' "dot_dotfiles_lib/bash/completions.bash" "npm completion is explicitly configured"
 require_pattern 'auto_sync = false' "dot_config/atuin/config.toml" "Atuin auto sync is disabled"
-require_pattern 'userHostColor = "purple"' ".chezmoidata.toml" "prompt color data is configured"
+require_pattern '.config/chezmoi/chezmoi.toml' ".chezmoiignore" "local Chezmoi config is ignored by Chezmoi"
+require_pattern 'userHostColor = "' ".chezmoidata.toml" "prompt color data is configured"
+require_pattern '[data]' "dot_config/chezmoi/chezmoi.example.toml" "Chezmoi local data example is configured"
+require_pattern 'userHostColor = "green"' "dot_config/chezmoi/chezmoi.example.toml" "Haemogloben prompt color example is green"
 check_atuin_source_config
 
 check_home_file "$HOME/.bashrc" 'source "$HOME/.dotfiles_lib/bash/loader.bash"'
