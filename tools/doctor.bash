@@ -121,6 +121,7 @@ done
 
 require_root_file ".chezmoiroot"
 require_root_file ".gitignore"
+require_root_file "tools/init.py"
 require_source_file ".chezmoiignore"
 require_source_file ".chezmoidata.toml"
 require_source_file "dot_bashrc"
