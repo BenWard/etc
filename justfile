@@ -8,12 +8,17 @@ default:
 install:
     brew bundle install --file "{{source_dir}}/Brewfile"
     chezmoi init --source "{{source_dir}}"
+    just --justfile "{{source_dir}}/justfile" --working-directory "{{source_dir}}" init
     chezmoi --source "{{source_dir}}" apply --force
     bash "{{source_dir}}/tools/doctor.bash" "{{source_dir}}" "{{source_dir}}/home"
     bash "{{source_dir}}/tools/migrate-history.bash"
 
+# Create or update the machine-local Chezmoi config.
+init:
+    python3 "{{source_dir}}/tools/init.py" "{{source_dir}}"
+
 # Apply managed dotfiles to $HOME.
-apply:
+apply: init
     chezmoi --source "{{source_dir}}" apply
 
 # Show the home-directory changes Chezmoi would make.
