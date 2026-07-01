@@ -13,9 +13,12 @@ install:
     bash "{{source_dir}}/tools/doctor.bash" "{{source_dir}}" "{{source_dir}}/home"
     bash "{{source_dir}}/tools/migrate-history.bash"
 
+# Use Homebrew's python3 explicitly so an active project venv on PATH can't
+# shadow it; init.py needs tomllib, which only ships with Python 3.11+.
+
 # Create or update the machine-local Chezmoi config.
 init:
-    python3 "{{source_dir}}/tools/init.py" "{{source_dir}}"
+    "$(brew --prefix)/bin/python3" "{{source_dir}}/tools/init.py" "{{source_dir}}"
 
 # Apply managed dotfiles to $HOME.
 apply: init
@@ -24,6 +27,10 @@ apply: init
 # Show the home-directory changes Chezmoi would make.
 diff:
     chezmoi --source "{{source_dir}}" diff
+
+# Pull local $HOME changes back into the source, choosing hunks like git add -p.
+reverse *ARGS: init
+    bash "{{source_dir}}/tools/reverse-apply.bash" "{{source_dir}}" {{ARGS}}
 
 # Check required tools, shell startup, Chezmoi state, and Brewfile status.
 doctor:
