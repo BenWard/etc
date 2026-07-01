@@ -1,22 +1,16 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "awsAuthRefresh": "aws sso login --profile staging-admin",
-  "env": {
-    "CLAUDE_CODE_USE_BEDROCK": "1",
-    "AWS_REGION": "us-east-2",
-    "AWS_PROFILE": "staging-admin"
-  },
   "permissions": {
-    "defaultMode": "auto",
     "allow": [
       "Read(~/.AGENTS.md)"
     ],
     "deny": [
       "Bash(chmod *)",
       "Bash(chown *)"
-    ]
+    ],
+    "defaultMode": "auto"
   },
-  "model": "us.anthropic.claude-opus-4-8",
+  "model": "opus[1m]",
   "enabledPlugins": {
     "codex@openai-codex": true,
     "swiftui-pro@swiftui-agent-skill": true
@@ -42,8 +36,8 @@
     }
   },
   "effortLevel": "high",
-  "theme": "dark-ansi",
-  "skipAutoPermissionPrompt": true,
   "skipDangerousModePermissionPrompt": true,
-  "switchModelsOnFlag": true
+  "theme": "auto",
+  "switchModelsOnFlag": true,
+  "skipAutoPermissionPrompt": true
 }
