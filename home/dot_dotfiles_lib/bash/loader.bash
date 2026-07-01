@@ -50,8 +50,6 @@ if [ -n "$PS1" ]; then
     eval "$(atuin init bash)"
   fi
 
-  # Work-specific helpers.
-  source "$DOTPATH/caire.bash"
 fi
 
 sourceif ~/.extras.bash
