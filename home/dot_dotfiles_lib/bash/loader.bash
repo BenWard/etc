@@ -21,6 +21,7 @@ source "$DOTPATH/scala.bash"
 if [ -n "$PS1" ]; then
   source "$DOTPATH/terminal.bash"
   source "$DOTPATH/completions.bash"
+  source "$DOTPATH/homebrew.bash"
   source "$DOTPATH/functions.bash"
   source "$DOTPATH/shell.bash"
 
