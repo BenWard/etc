@@ -1,2 +1,6 @@
 # Shared prompt data. Local machine config can override this later.
 userHostColor = "cyan"
+
+# Default Git identity. Machines can override either value locally.
+gitUserName = "Ben Ward"
+gitUserEmail = "ben@example.com"

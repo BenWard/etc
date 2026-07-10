@@ -2,3 +2,5 @@
 
 [data]
 userHostColor = "green"
+gitUserName = "Ben Ward"
+gitUserEmail = "ben@example.local"
