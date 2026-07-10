@@ -18,7 +18,7 @@ install:
 
 # Create or update the machine-local Chezmoi config.
 init:
-    "$(brew --prefix)/bin/python3" "{{source_dir}}/tools/init.py" "{{source_dir}}"
+    $(brew --prefix)/bin/python3 "{{source_dir}}/tools/init.py" "{{source_dir}}"
 
 # Apply managed dotfiles to $HOME.
 apply: init
