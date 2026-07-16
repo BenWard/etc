@@ -1,4 +1,4 @@
-format = "$time${custom.user_host}$directory$git_branch${custom.git_marker} \\$ "
+format = "$time${custom.user_host}$directory$git_branch$git_state $git_status \\$ "
 add_newline = false
 
 [time]
@@ -24,14 +24,31 @@ when = "true"
 [directory]
 format = "[$path]($style)"
 style = "yellow"
-truncation_length = 100
-truncate_to_repo = false
+before_repo_root_style = "yellow"
+repo_root_style = "yellow"
+truncation_length = 3
+truncation_symbol = "…/"
+truncate_to_repo = true
+repo_root_format = "[⟃$repo_root]($repo_root_style)[$path]($style)"
 
 [git_branch]
 format = "[#$branch]($style)"
+only_attached = true
+truncation_length = 30
 style = "purple"
 
+[git_state]
+style = "bold purple"
+
+[git_status]
+style = "purple"
+format = "([$all_status]($style))"
+modified = "±"
+conflicted = "!"
+deleted = ""
+
 [custom.git_marker]
+disabled = true
 command = """
 if [[ -n "$(git status --porcelain --ignore-submodules 2>/dev/null)" ]]; then
   printf "±"
