@@ -9,11 +9,11 @@ style = "gray"
 
 [custom.user_host]
 command = """
-if [[ "${HOSTNAME:-}" == "Voyager.local" ]]; then
-  printf "~%s" "${USER:-}"
-else
+if [[ -n "${SSH_CONNECTION:-}" || -n "${SSH_TTY:-}" ]]; then
   host="${HOSTNAME:-$(hostname)}"
   printf "~%s@%s" "${USER:-}" "${host%%.*}"
+else
+  printf "~%s" "${USER:-}"
 fi
 """
 format = "[$output]($style) "
