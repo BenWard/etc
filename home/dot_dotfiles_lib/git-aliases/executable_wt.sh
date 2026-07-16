@@ -10,8 +10,12 @@ if [[ -z "$branch" ]]; then
 fi
 
 root=$(git rev-parse --show-toplevel)
+repo=$(basename "$root")
 name=$(printf '%s' "$branch" | tr / -)
-path="$root/.worktrees/$name"
+worktree_root=${WORKTREE_ROOT:-"$HOME/Code/_worktrees"}
+path="$worktree_root/$repo/$name"
+
+mkdir -p "$worktree_root/$repo"
 
 if [[ $# -eq 0 ]]; then
   git worktree add --force "$path" "$branch"

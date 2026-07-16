@@ -2,6 +2,7 @@
 
 # Home
 export PATH="$HOME/bin:$PATH"
+export WORKTREE_ROOT="${WORKTREE_ROOT:-$HOME/Code/_worktrees}"
 
 ## Homebrew
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
