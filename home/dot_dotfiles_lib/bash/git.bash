@@ -78,6 +78,14 @@ github() {
   return 1
 }
 
+# Create (or reuse) a git worktree and cd into it. A git alias can't change the
+# calling shell's directory, so the cd has to happen in this function.
+wt() {
+  local dir
+  dir=$(git wt "$@") || return
+  [[ -n "$dir" ]] && cd "$dir"
+}
+
 gitroot() {
   local root="$(git rev-parse --show-toplevel 2>/dev/null)"
   if [ -z "$root" ]; then
