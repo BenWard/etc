@@ -4,6 +4,10 @@
 export PATH="$HOME/bin:$PATH"
 export WORKTREE_ROOT="${WORKTREE_ROOT:-$HOME/Code/_worktrees}"
 
+if [[ -d "$HOME/.orbstack/bin" ]]; then
+  export PATH="$HOME/.orbstack/bin:$PATH"
+fi
+
 ## Homebrew
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"

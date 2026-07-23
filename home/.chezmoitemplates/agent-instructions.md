@@ -41,4 +41,3 @@ If referencing a ticket (e.g. BUG-123) from a tracking system (e.g. GitHub, Jira
 * You must ask before installing new packages.
 
  ## Pull Requests
-
