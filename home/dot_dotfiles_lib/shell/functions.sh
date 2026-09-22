@@ -1,4 +1,4 @@
-# Generic Bash Functions
+# Shared Bash/zsh functions
 
 ## History Search Shorthand
 ##
@@ -25,20 +25,18 @@ function hist {
     return
   fi
 
-  local choice cmd
+  local choice
   choice=$(atuin search --cmd-only --search-mode full-text -- "$query" \
            | awk '!seen[$0]++' \
-           | fzf --height 40% --reverse --no-sort --tac --query "$query" --prompt 'hist> ')
+           | fzf --height 40% --reverse --no-sort --tac --query "$query" --prompt 'hist> ') || return 0
   [[ -z "$choice" ]] && return 0
 
-  history -s "$choice"
-  read -e -p "run: " -i "$choice" cmd
-  [[ -n "$cmd" ]] && eval "$cmd"
+  _dotfiles_hist_edit "$choice"
 }
 
 ## CD and immediately ls
 function cdls {
-  cd "$1" || return
+  cd "${1:-$HOME}" || return
   ls
 }
 
@@ -55,16 +53,27 @@ alias sshadd='ssh-add ~/.ssh/id_rsa'
 
 # Handy Python web-servers: Usage `serve [port]`
 function http {
-  python3 -m http.server $1
+  python3 -m http.server "$@"
 }
 
 function sudohttp {
-  sudo python3 -m http.server "$1"
+  sudo python3 -m http.server "$@"
 }
 
 # Free up an HTTP port
 function killport {
-  kill "$(lsof -t -i "tcp:$1")"
+  if [[ -z "${1:-}" ]]; then
+    printf 'Usage: killport PORT\n' >&2
+    return 1
+  fi
+  local pid
+  local -a pids
+  pids=()
+  while IFS= read -r pid; do
+    [[ -n "$pid" ]] && pids+=("$pid")
+  done < <(lsof -t -i "tcp:$1")
+  [[ ${#pids[@]} -gt 0 ]] || return 0
+  kill "${pids[@]}"
 }
 
 # URL encode a string

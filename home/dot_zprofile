@@ -1,0 +1,16 @@
+# macOS path_helper runs after .zshenv; restore managed PATH precedence.
+source "$HOME/.dotfiles_lib/shell/env.sh"
+
+# Preserve Homebrew's login environment (MANPATH, INFOPATH, and prefix vars).
+if [[ -z "${_DOTFILES_BREW_ENV_LOADED:-}" && -x "$BREWDIR/bin/brew" ]]; then
+  eval "$("$BREWDIR/bin/brew" shellenv zsh)"
+  _DOTFILES_BREW_ENV_LOADED=1
+  source "$HOME/.dotfiles_lib/shell/paths.sh"
+fi
+
+# Preserve OrbStack's native zsh integration on login shells.
+if [[ -z "${_DOTFILES_ORBSTACK_LOADED:-}" && -r "$HOME/.orbstack/shell/init.zsh" ]]; then
+  source "$HOME/.orbstack/shell/init.zsh"
+  _DOTFILES_ORBSTACK_LOADED=1
+  source "$HOME/.dotfiles_lib/shell/paths.sh"
+fi

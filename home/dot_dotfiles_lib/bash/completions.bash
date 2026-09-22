@@ -7,3 +7,8 @@ if [[ -n "${BREWDIR:-}" ]] && [[ -f "$BREWDIR/etc/bash_completion.d/npm" ]]; the
 elif command -v npm >/dev/null 2>&1; then
   eval "$(npm completion 2>/dev/null)"
 fi
+
+if [[ -n "${BREWDIR:-}" ]]; then
+  sourceif "$BREWDIR/etc/bash_completion.d/git-completion.bash"
+fi
+sourceif /usr/share/git-core/contrib/completion/git-completion.bash

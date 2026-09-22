@@ -1,1 +1,13 @@
 .AGENTS.md
+.dotfiles_lib/bash/applications.bash
+.dotfiles_lib/bash/colors.bash
+.dotfiles_lib/bash/docker.bash
+.dotfiles_lib/bash/functions.bash
+.dotfiles_lib/bash/git.bash
+.dotfiles_lib/bash/homebrew.bash
+.dotfiles_lib/bash/node.bash
+.dotfiles_lib/bash/paths.bash
+.dotfiles_lib/bash/python.bash
+.dotfiles_lib/bash/ruby.bash
+.dotfiles_lib/bash/scala.bash
+.dotfiles_lib/bash/terminal.bash

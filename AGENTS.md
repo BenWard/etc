@@ -2,7 +2,7 @@
 
 Dotfiles, scripts and configs for re-use across machines.
 
-* `bash` is our preferred shell
+* `bash` is our preferred shell; Bash and zsh share managed configuration
 * Uses Chezmoi as the dotfile manager
 * `just` as the command runner
 * homebrew is the system-wide package manager, and Brewfile install utilities I use on every machine.
@@ -57,7 +57,14 @@ The marker is `±` when the repo has changes and `=` when the repo is clean.
 
 Atuin is configured in `home/dot_config/atuin/config.toml` with `auto_sync = false`. No cloud account, sync key, sync address is configured by this repo.
 
-`hist` is an alias for `atuin search`.
+`hist` opens Atuin search; `hist <query>` uses fzf and an editable command prompt.
+Bash uses Readline; zsh fills the next command line.
+
+Shared modules live in `home/dot_dotfiles_lib/shell/`; shell-specific adapters
+live in sibling `bash/` and `zsh/` directories. Use `just test-shells` for isolated
+behavior tests and `just smoke-shells` for real integrations in temporary PTYs.
+Use `just diff-shells` and `just apply-shells` when unrelated managed files have
+local drift. See `docs/v2.md` for startup and override behavior.
 
 ## Validation Notes
 
@@ -66,7 +73,7 @@ After editing the repo, run:
 ```sh
 just --list
 just doctor
-chezmoi --source "$(pwd)" diff
-chezmoi --source "$(pwd)" apply --dry-run --verbose
-brew bundle check --file Brewfile --verbose
+just diff
+just dry-run
+just check-bundle
 ```

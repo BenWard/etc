@@ -1,11 +1,3 @@
-# Mac
-if [[ -n "${BREWDIR:-}" ]]; then
-  sourceif "$BREWDIR/etc/bash_completion.d/git-completion.bash"
-fi
-
-# CentOS
-sourceif "/usr/share/git-core/contrib/completion/git-completion.bash"
-
 _github_remote_to_web_url() {
   local remote=$1
   local slug
@@ -50,7 +42,7 @@ _github_open_url() {
 }
 
 github() {
-  local remote url
+  local remote url remote_name remote_url remote_type
 
   if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
     echo "Not a git repository" >&2
@@ -92,5 +84,5 @@ gitroot() {
     echo "Not a git repository" >&2
     return 1
   fi
-  cd "$root/$1"
+  cd "$root/${1:-}"
 }

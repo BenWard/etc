@@ -36,7 +36,7 @@ reverse *ARGS: init
 doctor:
     bash "{{source_dir}}/tools/doctor.bash" "{{source_dir}}" "{{source_dir}}/home"
 
-# Import existing bash history into atuin (one-time, idempotent).
+# Import existing Bash and zsh history into Atuin (one-time, idempotent).
 migrate-history:
     bash "{{source_dir}}/tools/migrate-history.bash"
 
@@ -48,3 +48,31 @@ update:
     mise plugins update || true
     mise outdated || true
     brew outdated || true
+
+# Test shell startup, helpers, and history migration in isolated home directories.
+test-shells:
+    "$(brew --prefix)/bin/python3" "{{source_dir}}/tools/test-shells.py"
+
+# Exercise real installed integrations in temporary homes with terminal input.
+smoke-shells:
+    "$(brew --prefix)/bin/python3" "{{source_dir}}/tools/smoke-shells.py"
+
+# Verify deployed startup files against the current user's installed tools.
+check-installed-shells:
+    "$(brew --prefix)/bin/python3" "{{source_dir}}/tools/smoke-shells.py" --installed
+
+# Preview changes without applying; suitable for checking unrelated local drift.
+dry-run:
+    chezmoi --source "{{source_dir}}" apply --dry-run --verbose --force
+
+# Check installed packages without changing them.
+check-bundle:
+    HOMEBREW_NO_AUTO_UPDATE=1 brew bundle check --file "{{source_dir}}/Brewfile" --verbose
+
+# Preview only shell files. Superseded Bash modules are included for removal.
+diff-shells:
+    chezmoi --source "{{source_dir}}" diff --recursive ~/.bashrc ~/.bash_profile ~/.zshenv ~/.zprofile ~/.zshrc ~/.dotfiles_lib/bash ~/.dotfiles_lib/shell ~/.dotfiles_lib/zsh
+
+# Apply shell configuration without overwriting unrelated managed files.
+apply-shells *ARGS:
+    chezmoi --source "{{source_dir}}" apply {{ARGS}} ~/.bashrc ~/.bash_profile ~/.zshenv ~/.zprofile ~/.zshrc ~/.dotfiles_lib/bash ~/.dotfiles_lib/shell ~/.dotfiles_lib/zsh
