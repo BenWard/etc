@@ -10,7 +10,9 @@
   "model": "opus[1m]",
   "enabledPlugins": {
     "codex@openai-codex": true,
-    "swiftui-pro@swiftui-agent-skill": true
+    "swiftui-pro@swiftui-agent-skill": true,
+    "figma@claude-plugins-official": true,
+    "vercel@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
@@ -33,6 +35,17 @@
     }
   },
   "effortLevel": "high",
+  "modelSettings": {
+    "claude-opus-5": {
+      "effortLevel": "high"
+    },
+    "claude-sonnet-5": {
+      "effortLevel": "medium"
+    },
+    "claude-opus-5-5": {
+      "effortLevel": "medium"
+    }
+  },
   "skipDangerousModePermissionPrompt": true,
   "theme": "auto",
   "switchModelsOnFlag": true,
