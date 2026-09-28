@@ -49,8 +49,35 @@ If referencing a ticket (e.g. BUG-123) from a tracking system (e.g. GitHub, Jira
 
  ## Development
 
-* When a project contains a scripts mechanism (e.g. just, npm, poetry) you must ONLY run test, lint and validation tasks from these scripts.
+* When a project contains a scripts mechanism (e.g. just, npm, poetry) you must ONLY run test, lint and validation tasks from those scripts where they exist.
 * When running a specific test/lint action (e.g. to verify a single file) you must use the same tool as is specified in just/npm/poetry/etc.
-* You must ask before installing new packages.
+* You must ask before adding new packages (you do not need to ask to `npm install` existing packages or sync your state with a lockfile.)
 
- ## Pull Requests
+## Pull Requests
+
+PR descriptions should only be written by the agent where no description already exists. Do not override human written descriptions.
+
+If proposing changes to a PR description, pull the latest description first to capture human changes, do not revert to a description previously written by an agent.
+
+### When creating a PR:
+
+Preferred title format:
+
+    [app/feature] PROJ-123 Title description of core feature change.
+
+Description content:
+
+Include short description of feature and user impact.
+
+Include bulleted list of:
+
+* CHANGES: -- changes to functionality or behaviour or developer environment as part of this change.
+* FIXES: -- bugs/faults/unexpected defects resolved as part of deploying this change.
+
+Descriptions should be brief.
+DO NOT document the changelog or in-branch iterations.
+All notes must be relative to the state of the HEAD codebase, changes between iterations of the branch are irrelevant.
+DO NOT include design decisions where those decisions only exist in the context of the branch or ticket.
+
+Summarize additional test coverage (one sentence) but do not report testing results that will be reported by CI jobs.
+Do include list of manual tests that must be performed or blockers that must be resolved before merge.
