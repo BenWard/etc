@@ -69,15 +69,23 @@ Description content:
 
 Include short description of feature and user impact.
 
-Include bulleted list of:
+Include bulleted lists of:
 
-* CHANGES: -- changes to functionality or behaviour or developer environment as part of this change.
-* FIXES: -- bugs/faults/unexpected defects resolved as part of deploying this change.
+```
+CHANGES:
+- changes to functionality
+- changes to behaviour or developer environment as part of this change.
+
+FIXES:
+- bugs/faults/unexpected or incidental defects resolved with this change.
+```
 
 Descriptions should be brief.
-DO NOT document the changelog or in-branch iterations.
-All notes must be relative to the state of the HEAD codebase, changes between iterations of the branch are irrelevant.
-DO NOT include design decisions where those decisions only exist in the context of the branch or ticket.
 
-Summarize additional test coverage (one sentence) but do not report testing results that will be reported by CI jobs.
-Do include list of manual tests that must be performed or blockers that must be resolved before merge.
+DO NOT document the changelog or in-branch decisions/iteration.
+All descriptions must be relative to the state of the HEAD; changes within the branch history are incomprehensible to a reviewer.
+Do not document design decision changes made only in the history of the branch or ticket.
+
+Summarize additional test coverage (one sentence); do not report test results that will be reported by CI jobs.
+
+Do include list of outstanding manual tests that must be performed, or blockers that must be resolved before merge.
